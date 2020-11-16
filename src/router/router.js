@@ -1,6 +1,6 @@
 import React from 'react';
 import {HashRouter, BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Login from '../pages/login/login.js'
+import Login from '../pages/login/index.js'
 import Index from '../pages/index/index.js'
 import Detail from '../pages/detail/detail.js'
 import Regist from '../pages/regist/regist.js'
