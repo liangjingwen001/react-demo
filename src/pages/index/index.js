@@ -19,7 +19,12 @@ function Index(props) {
 	
 	let list = [];
 	dataList.forEach((item, index) => {
-		list.push(<li key={index}>{item.title}--{item.newsContent}<button onClick={() => {delNews(item._id)}}>删除</button><button onClick={() => {newsDetail(item._id)}}>详情</button></li>)
+		list.push(
+		<li key={index}>
+			{item.title}--{item.newsContent}
+			<button onClick={() => {delNews(item._id)}}>删除</button>
+			<button onClick={() => {newsDetail(item._id)}}>详情</button>
+		</li>)
 	})
 	
 	return (
