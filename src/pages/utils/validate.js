@@ -1,0 +1,1 @@
+export const validate_password = /^[0-9]*$/
