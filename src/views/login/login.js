@@ -8,22 +8,33 @@ import {login} from '../../api/account'
 class Login extends Component {
 	constructor() {
 		super()
-		this.state = {}
+		this.state = {
+			email: ''
+		}
 	}
 
-	onFinish = (values) => {
-		login()
+	onFinish = (val) => {
+		login(val)
 		.then((res) => {
 			console.log(res)
 		})
 		.catch((err) => {
 			console.log(err)
 		})
-		// console.log('Received values of form: ', values);
 	}
 
 	toogleForm = () => {
 		this.props.switchForm('register')
+	}
+
+	getCode = () => {
+		console.log(this.state.email)
+	}
+
+	getPassword = (e) => {
+		this.setState({
+			email: e.target.value
+		})
 	}
 
 	render() {
@@ -37,7 +48,7 @@ class Login extends Component {
 				onFinish={this.onFinish}
 				>
 					<Form.Item name="username" rules={[{ required: true, message: '邮箱不能为空!' }, {type: 'email', message: '邮箱格式不正确！'}]}>
-						<Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" />
+						<Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" onChange={this.getPassword}/>
 					</Form.Item>
 					<Form.Item name="password" rules={[{ required: true, message: '密码不能为空!' }]}>
 					{/* <Form.Item name="password" rules={[{ required: true, message: '密码不能为空!' }, {min: 6, message: '密码不能小于6位'}, {max: 8, message: '密码不能大于8位'}, {pattern: validate_password, message: '请输入数字'}]}> */}
@@ -49,7 +60,7 @@ class Login extends Component {
 								<Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Code"/>
 							</Col>
 							<Col span={8}>
-								<Button type="danger">获取验证码</Button>
+								<Button type="danger" onClick={this.getCode}>获取验证码</Button>
 							</Col>
 						</Row>
 					</Form.Item>
