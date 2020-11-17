@@ -1,9 +1,9 @@
 import React from 'react';
 import {HashRouter, BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import Login from '../pages/login/index.js'
-import Index from '../pages/index/index.js'
-import Detail from '../pages/detail/detail.js'
-import Regist from '../pages/regist/regist.js'
+import Login from '../views/login/index.js'
+import Index from '../views/index/index.js'
+import Detail from '../views/detail/detail.js'
+import Regist from '../views/regist/regist.js'
 
 export default function IRouter() {
 	return (<Router>

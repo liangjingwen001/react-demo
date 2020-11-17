@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import './login.css';
 import { Form, Input, Button, Row, Col } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-import {validate_password} from '../utils/validate';
-import {login} from '../api/account'
+import {validate_password} from '../../utils/validate';
+import {login} from '../../api/account'
 
 class Login extends Component {
 	constructor() {
