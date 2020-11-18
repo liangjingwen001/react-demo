@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import { Switch} from 'react-router-dom'
 import UserList from '../../users/userList'
 import UserAdd from '../../users/userAdd'
 import PrivateRouter from '../../../router/privateRouter'
