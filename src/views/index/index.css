@@ -1,0 +1,8 @@
+.layout-warp{
+    height: 100vh;
+}
+.layout-container{
+    background-color: #fff;
+    border: 30px solid #f7f7f7;
+    padding: 30px;
+}

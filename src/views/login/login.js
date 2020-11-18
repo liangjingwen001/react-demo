@@ -4,16 +4,20 @@ import { Form, Input, Button, Row, Col } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
 import {validate_password} from '../../utils/validate';
 import {login} from '../../api/account'
+import {withRouter} from 'react-router-dom'
+import {setToken} from '../../utils/session'
 
 class Login extends Component {
-	constructor() {
-		super()
+	constructor(props) {
+		super(props)
 		this.state = {
 			email: ''
 		}
 	}
 
 	onFinish = (val) => {
+		setToken('12312asd32saw3qw21e')
+		this.props.history.push('/index')
 		login(val)
 		.then((res) => {
 			console.log(res)
@@ -50,8 +54,8 @@ class Login extends Component {
 					<Form.Item name="username" rules={[{ required: true, message: '邮箱不能为空!' }, {type: 'email', message: '邮箱格式不正确！'}]}>
 						<Input prefix={<UserOutlined className="site-form-item-icon" />} placeholder="Email" onChange={this.getPassword}/>
 					</Form.Item>
-					<Form.Item name="password" rules={[{ required: true, message: '密码不能为空!' }]}>
-					{/* <Form.Item name="password" rules={[{ required: true, message: '密码不能为空!' }, {min: 6, message: '密码不能小于6位'}, {max: 8, message: '密码不能大于8位'}, {pattern: validate_password, message: '请输入数字'}]}> */}
+					{/* <Form.Item name="password" rules={[{ required: true, message: '密码不能为空!' }]}> */}
+					<Form.Item name="password" rules={[{ required: true, message: '密码不能为空!' }, {min: 6, message: '密码不能小于6位'}, {max: 8, message: '密码不能大于8位'}, {pattern: validate_password, message: '请输入数字'}]}>
 						<Input prefix={<LockOutlined className="site-form-item-icon" />} type="password" placeholder="Password"/>
 					</Form.Item>
 					<Form.Item name="code" rules={[{ required: true, message: '验证码不能为空!'}]}>
@@ -74,4 +78,4 @@ class Login extends Component {
 
 }
  
-export default Login;
+export default withRouter(Login);
