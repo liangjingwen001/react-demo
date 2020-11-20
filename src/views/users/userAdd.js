@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {Fragment} from 'react';
+import Store from '../../store/index'
 
 class Users extends React.Component {
 	
 	render() {
 		return (
-			<div>新增用户</div>
+		<Fragment>新增用户{Store.getState().dep.aa}</Fragment>
 		)
 	}
 }
