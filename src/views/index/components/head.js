@@ -1,15 +1,26 @@
 import React from 'react';
 import { withRouter} from 'react-router-dom'
+import Son from './sonson'
+import {Provider} from '../index'
 
-function Head(props) {
+class Head extends React.Component {
 
-    const exit = () => {
+    exit = () => {
         sessionStorage.removeItem('adminToken');
-        props.history.push('/login')
+        this.props.history.push('/login')
     }
 
-    return (
-        <span onClick={exit} style={{color: '#fff', float: 'right'}}>退出</span>
-    )
+    data = {
+		title: '黑铁教育',
+		des: '学习资料123'
+	}
+
+    render() {
+        return (
+            <Provider value={this.data}>
+                <span onClick={this.exit} style={{color: '#fff', float: 'right'}}>退出<Son /></span>
+            </Provider>
+        )
+    }
 }
 export default withRouter(Head)

@@ -7,23 +7,30 @@ import Head from './components/head'
 
 const { Header, Content, Sider } = Layout;
 
+export const {Provider,Consumer} = React.createContext("");
+
 class Index extends React.Component {
-	
+	data = {
+		title: '源码时代',
+		des: '学习资料'
+	}
 	render() {
 		return (
-			<Layout className="layout-warp">
-				<Header className="header">
-					<Head />
-				</Header>
-				<Layout>
-					<Sider width={250} className="site-layout-background">
-						<Navbar />
-					</Sider>
-					<Content className="layout-container">
-						<Container />
-					</Content>	
+			<Provider value={this.data}>
+				<Layout className="layout-warp">
+					<Header className="header">
+						<Head />
+					</Header>
+					<Layout>
+						<Sider width={250} className="site-layout-background">
+							<Navbar />
+						</Sider>
+						<Content className="layout-container">
+							<Container />
+						</Content>	
+					</Layout>
 				</Layout>
-			</Layout>
+			</Provider>
 		)
 	}
 }
