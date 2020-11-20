@@ -4,7 +4,6 @@ const stateData = {
 }
 
 const depReducer = function(state = stateData, action) {
-    console.log(state, action)
     switch(action.type) {
         case 'test': {
             return {
@@ -18,6 +17,8 @@ const depReducer = function(state = stateData, action) {
                 aa: action.pyalod
             }
         }
+        case 'TODO_STATE':
+            return action.text
         default:
             return state
     }

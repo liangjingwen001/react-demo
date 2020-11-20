@@ -1,6 +1,11 @@
 // Reducer
 const jobReducer = function(state = [], action) {
-    return state
+    switch(action.type) {
+        case 'TODO_STATE':
+            return action.text
+        default:
+            return state
+    }
 }
 
 export default jobReducer

@@ -3,12 +3,14 @@ import {createStore, combineReducers} from 'redux'
 import depReducer from './reducer/dep'
 import jobReducer from './reducer/job'
 import configReducer from './reducer/config'
+import todoReducer from './reducer/todoReducer'
  
 // 创建reducer对象
 const allReducer = {
     dep: depReducer,
     job: jobReducer,
-    config: configReducer
+    config: configReducer,
+    todoReducer: todoReducer
 }
 
 // 多个reducer(一个reducer可以直接createStore)
