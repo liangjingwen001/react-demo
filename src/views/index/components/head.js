@@ -17,6 +17,7 @@ class Head extends React.Component {
 
     render() {
         return (
+            // 需要修改的组件也用Provider包裹
             <Provider value={this.data}>
                 <span onClick={this.exit} style={{color: '#fff', float: 'right'}}>退出<Son /></span>
             </Provider>

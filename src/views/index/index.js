@@ -7,7 +7,9 @@ import Head from './components/head'
 
 const { Header, Content, Sider } = Layout;
 
-export const {Provider,Consumer} = React.createContext("");
+// 新建context
+export const testContext = React.createContext("");
+export const {Provider} = testContext
 
 class Index extends React.Component {
 	data = {
@@ -16,6 +18,7 @@ class Index extends React.Component {
 	}
 	render() {
 		return (
+			// 父组件用Provider包裹
 			<Provider value={this.data}>
 				<Layout className="layout-warp">
 					<Header className="header">
